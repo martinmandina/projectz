@@ -2,9 +2,18 @@
 {% load bootstrap4 %}
 {% block content %}
 {{block.super}}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Upload Project</title>
+        {{form.media}}
+       
+</head>
 <body>
-    
-<h4>  New Project</h4>
+    <h4>  New Project</h4>
 <div class="container-fluid">
 
         <form  action="{%url 'index'%}" method="post">
