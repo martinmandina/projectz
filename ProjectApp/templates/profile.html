@@ -1,30 +1,43 @@
 {% extends 'base.html' %}
-{% load static %}
-{% load bootstrap4 %}
 {% block content %}
+<div class="container" style="margin-top:30px;">
+    <div class="row profile">
+        <div class="col-md-2">
+            {% if profile.profile_picture %}
+            <img src="{{profile.profile_picture.url}}" alt="{{user}}" class="img-responsive">
+            {% else %}
+            <img src="/media/prof_pics/Avatar.png" alt="No Profile Pic">
+            {% endif %}
+        </div>
+        
+            <div class="col-md-2">
+            <p style="margin-left:20px;margin-top: 30px;"><strong>Bio: </strong>{{profile.bio}}</p>
+            <p style="margin-left:20px;"><strong>Contact Info: </strong>{{profile.contact_info}}</p>
+        </div>
 
-{%  if user.is_authenticated%}
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 align-item-center">
+    </div>
+    <div class="row" style="margin-top:30px;">
+        <div class="row">
+            <h3 class="text-center" style="margin-left:500px;">Projects</h3>
+        </div>
+      
+        <div class="card-deck">
+            {% for one in projects %}
             
-                <div class=" mt-5 card">
-                    <img src="{{profile.profile.url}}"  class="img-responsive" alt="">
-                    <div class="card-body">
-                        <p class="card-text">{{user.username}}</p>
-                        <p>{{profile.bio}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <h4 class="text-muted">Contacts : {{profile.contacts}}</h4>
+            <div class="col-md-4">
+                <div class="card mb-3">
+
+                  
+                    <div class="view overlay">
+                        <img class="card-img-top" src="{{one.image.url}}" alt="{{one.title}}">
                     </div>
                 </div>
-            
+            </div>
+            {% endfor %}
         </div>
+   
+
     </div>
 </div>
 
-{% endif %}
-
-{% endblock%}
-
+{% endblock %}

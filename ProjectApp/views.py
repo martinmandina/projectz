@@ -46,8 +46,25 @@ def profile_new(request):
 
 # @login_required(login_url='/accounts/login/')
 def profile(request):
-    user = request.user
-    profile = Profile.objects.get(pk=user.id)
-        
-    return render(request,'profile.html',{'profile':profile,'user':user})
+    current_user = request.user
+    projects = Project.objects.filter(user = current_user)
+
+    try:   
+        profile = Profile.objects.get(user_profile=current_user)
+    except ObjectDoesNotExist:
+        return redirect('profilenew')
+
+    return render(request,'profile/profile.html',{'profile':profile,'projects':projects})
+
+def search_project(request):
+    if 'project' in request.GET and request.GET ["project"]:
+        search_term = request.GET.get("project")
+        search_projects = Project.search_project_title(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'search.html', {"message":message, "projects":search_project})
+
+    else:
+        message = "No search results yet!"
+        return render (request, 'search.html', {"message": message})
 
