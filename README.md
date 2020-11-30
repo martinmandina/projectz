@@ -57,3 +57,4 @@ DEBUG = True
 ### License  & Copyright information
 Copyright (c) 2020 **Martin Mandina
 
+[MIT License](./LICENSE)
