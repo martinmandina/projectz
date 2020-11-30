@@ -59,7 +59,7 @@ def profile(request):
 def search_project(request):
     if 'project' in request.GET and request.GET ["project"]:
         search_term = request.GET.get("project")
-        search_projects = Project.search_project_title(search_term)
+        search_project = Project.search_project_title(search_term)
         message = f'{search_term}'
 
         return render(request, 'search.html', {"message":message, "projects":search_project})
