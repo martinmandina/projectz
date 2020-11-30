@@ -46,13 +46,8 @@ def profile_new(request):
 
 # @login_required(login_url='/accounts/login/')
 def profile(request):
-    current_user = request.user
-    projects = Project.objects.filter(user = current_user)
-
-    try:   
-        profile = Profile.objects.get(user_profile=current_user)
-    except ObjectDoesNotExist:
-        return redirect('profilenew')
-
-    return render(request,'profile.html',{'profile':profile,'projects':projects})
+    user = request.user
+    profile = Profile.objects.get(pk=user.id)
+        
+    return render(request,'profile.html',{'profile':profile,'user':user})
 

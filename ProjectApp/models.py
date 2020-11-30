@@ -61,6 +61,12 @@ class Profile(models.Model):
     def profile_update(self):
         self.save()
 
+    @classmethod
+    def get_profile(cls,pk):
+        profile = cls.objects.get(pk = pk)
+        return profile 
+
+
         
 
 
