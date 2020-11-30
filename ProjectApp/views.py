@@ -16,7 +16,7 @@ def main(request):
 def project_new(request):
     logged_user = request.user
     if request.method == 'POST':
-        form = ProjectForm(request.POST,request.FILES)
+        form = FormProject(request.POST,request.FILES)
         if form.is_valid():
             user_image = form.save()
             user_image.user = logged_user
