@@ -56,7 +56,7 @@ def profile(request):
 
     return render(request,'profile/profile.html',{'profile':profile,'projects':projects})
 
-def search_project(request):
+def project_search(request):
     if 'project' in request.GET and request.GET ["project"]:
         search_term = request.GET.get("project")
         search_project = Project.search_project_title(search_term)
