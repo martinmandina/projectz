@@ -8,7 +8,8 @@ from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 
 def main(request):
-    projects = Project.get_images()
+    projects = Project.objects.all()
+
     return render(request,"index.html",{"projects":projects})
 
 
