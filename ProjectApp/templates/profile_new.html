@@ -1,4 +1,5 @@
-{% load bootstrap4 %}
+
+{% load bootstrap3 %}
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile Info</title>
+    <title>Profile</title>
     {{form.media}}
     {% block styles %}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
     {% endblock %}
 </head>
 
@@ -19,7 +19,7 @@
     <div class="container">
         <h3 class="text-center" style="margin-top:10px;">Create your Profile</h3>
         <div class="card" style="padding:30px;">
-            <form action="{% url 'profile_new' %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'new_profile' %}" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
                 {% bootstrap_form form%}
                 <input type="submit" class="btn btn-success btn-block" value="Submit">
