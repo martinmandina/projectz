@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %
+{% block content %}
+{{block.super}} 
+<body>
+<div class="container">
+  <body>
+    <div class="jumbotron">
+        <h1 style="text-align: center">Projects</h1>
+    </div>
+
+{% for one in projects %}
+<div class="photo-container">
+  <img src="{{one.image.url}}" alt="photo" width="50%">
+  <h4><span style="color:rgb(151, 64, 24);">Project :</span><br>{{one.title}}</h4>
+  <h4><span style="color:rgb(151, 64, 24);">Project Review:</span><br>{{one.description}}</h4>
+  <h4><span style="color:rgb(151, 64, 24);">Project Link:</span><br>{{one.link}}</h4>
+  <a href="{{one.image.url}}" class="button" target="_blank">Project</a>
+</div>
+<hr>
+{% empty %}
+<div class="row">
+    <h1 class="text-center"> No Project Posted Yet</h1>
+</div>
+   {% endfor %}
+  </div>
+
+</body>
+    {% block scripts %}
+        <script src="static/scripts.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
+{% endblock %}
