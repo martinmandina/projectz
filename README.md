@@ -36,9 +36,9 @@
 
 #### .env file
 Create .env file and paste paste the following filling with your credentials where appropriate:
-```python
+
 SECRET_KEY = '<Secret_key>'
-DBNAME = 'instaapp'
+DBNAME = 'ProjectApp'
 USER = '<Username>'
 PASSWORD = '<password>'
 DEBUG = True
