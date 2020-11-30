@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from .forms import FormProject
 
 
 # Create your views here.
@@ -12,7 +13,7 @@ def main(request):
         projects = Project.get_images()
         return render(request,"index.html",{"projects":projects})
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def project_new(request):
     logged_user = request.user
     if request.method == 'POST':
@@ -24,5 +25,5 @@ def project_new(request):
 
         return redirect('index')
     else:
-        form = ProjectForm()
+        form = FormProject()
     return render(request,"project_now.html",{"form":form})
