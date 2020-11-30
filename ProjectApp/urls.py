@@ -9,6 +9,8 @@ urlpatterns=[
         url(r'^profilenew/$',views.profile_new,name = 'new_profile'),
         url(r'^profile/$',views.profile,name='profile'),
         url(r'^search/',views.project_search, name='search_results'),
+        url(r'^api/profile/$', views.ProfileList.as_view()),
+        url(r'^api/projects/$', views.ProjectList.as_view()),
 
   ]
 
