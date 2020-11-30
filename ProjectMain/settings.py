@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "ProjectApp",
     'bootstrap3',
     'bootstrap4',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
