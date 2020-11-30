@@ -44,13 +44,13 @@ def profile_new(request):
         form = FormProfile()
     return render(request, 'profile_new.html', {"form": form})
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
     projects = Project.objects.filter(user = current_user)
 
     try:   
-        profile = Profile.objects.get(prof_user=current_user)
+        profile = Profile.objects.get(user_profile=current_user)
     except ObjectDoesNotExist:
         return redirect('profilenew')
 
