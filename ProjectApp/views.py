@@ -5,6 +5,8 @@ from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from .forms import FormProject,FormProfile
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 # Create your views here.
@@ -65,6 +67,18 @@ def project_search(request):
         return render(request, 'search.html', {"message":message, "projects":search_project})
 
     else:
-        message = "No search results yet!"
+        message = "No search results found!"
         return render (request, 'search.html', {"message": message})
+
+class ProfileList(APIView):
+    def get(self,request,format=None):
+        complete_profile = Profile.objects.all()
+        serializers = ProfileSerializer(complete_profile, many=True)
+        return Response(serializers.data)
+
+class ProjectList(APIView):
+    def get(self,request,format=None):
+        projects = Project.objects.all()
+        serializers = ProjectSerializer(projects, many=True)
+        return Response(serializers.data)
 
