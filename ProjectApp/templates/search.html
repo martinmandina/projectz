@@ -1,4 +1,4 @@
-{% extends 'Moringa_Project_Awards/base.html' %}
+{% extends 'base.html' %}
 {% block content %}
 <div class="container-fluid">
 
@@ -28,7 +28,7 @@
           <h4 class="card-title">{{project.title}}</h4>
           <!--Text-->
           <p class="card-text">{{project.details}}</p>
-          <p><a href="{{project.link}}">Live Project Link</a></p>
+          <p><a href="{{project.link}}">Project Link</a></p>
           <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
           <button type="button" class="btn btn-danger btn-md">Review</button>
 

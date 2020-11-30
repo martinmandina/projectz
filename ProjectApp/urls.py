@@ -10,10 +10,6 @@ urlpatterns=[
         url(r'^profile/$',views.profile,name='profile'),
         url(r'^search/',views.project_search, name='search_results'),
 
-
-
-
-
   ]
 
 if settings.DEBUG:
