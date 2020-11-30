@@ -38,7 +38,30 @@ class Project(models.Model):
         project = cls.objects.get(pk = pk)
         return project 
 
+class Profile(models.Model):
+    profile_pic = models.ImageField(upload_to='profilePics/', blank=True,null=True)
+    bio = models.TextField()     
+    contacts = models.CharField(max_length=20)
+    user_profile = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return self.bio
+
+    def profile_save(self):
+        self.save()
+
+    def profile_delete(self):
+        self.delete()
+
+    def profile_update(self):
+        self.save()
+
         
+
+
+
+
+
 
 
 
