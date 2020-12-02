@@ -58,7 +58,7 @@ class Profile(models.Model):
     def profile_delete(self):
         self.delete()
 
-    def profile_update(self):
+    def update_profile(self):
         self.save()
 
     @classmethod

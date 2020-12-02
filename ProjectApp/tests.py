@@ -27,6 +27,24 @@ class ProfileTestClass(TestCase):
         self.profile_new.profile_delete()
         self.assertTrue(len(profiles) == 0)
 
+# Set up method
+class ProjectTestClass(TestCase):
+    def setUp(self):
+        self.user_new = User.objects.create_user(username='user',password='passpass')
+        self.profile_new = Profile(user_profile=self.user_new,bio='add Bio',contacts='0721222222',profile_Id=1)
+        self.profile_new.profile_save()
+        self.project_new = Project(id=1,title='title',description='description',link='www.mimi.com',user=self.user_new)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.project_new,Project))
+
+   
+
+
+
+
+
+
     
 
 
