@@ -51,6 +51,13 @@ class ProjectTestClass(TestCase):
         projects = Project.objects.all()
         self.assertTrue(len(projects)==0)
 
+# Testing search method
+def test_find_project(self):
+        self.project_new.project_save()
+        project = Project.find_project(self.project_new.id)
+        self.assertTrue(project == self.project_new)
+
+
 
   
 

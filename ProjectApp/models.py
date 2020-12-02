@@ -36,11 +36,10 @@ class Project(models.Model):
     def get_images(cls):
         images_all = Project.objects.all()
         return images_all
-
     @classmethod
-    def get_one_project(cls,pk):
-        project = cls.objects.get(pk = pk)
-        return project 
+    def find_project(cls, project):
+        project = cls.objects.get(id=project)
+        return project
 
 class Profile(models.Model):
     profile_pic = models.ImageField(upload_to='profilePics/', blank=True,null=True)
