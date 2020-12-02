@@ -14,4 +14,12 @@ class ProfileTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.profile_new,Profile))
 
+# Testing Save Method
+    def test_profile_save(self):
+        self.profile_new.profile_save()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) > 0)
+
+
+
 
