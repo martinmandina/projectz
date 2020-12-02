@@ -43,7 +43,16 @@ class ProjectTestClass(TestCase):
     def test_save_project(self):
         self.project_new.project_save()
         projects = Project.objects.all()
-        self.assertTrue(len(projects)>0)  
+        self.assertTrue(len(projects)>0)
+
+# Testing delete Method
+    def test_profile_delete(self):
+        self.project_new.project_delete()
+        projects = Project.objects.all()
+        self.assertTrue(len(projects)==0)
+
+
+  
 
 
     
