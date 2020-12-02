@@ -35,8 +35,18 @@ class ProjectTestClass(TestCase):
         self.profile_new.profile_save()
         self.project_new = Project(id=1,title='title',description='description',link='www.mimi.com',user=self.user_new)
 
+# Testing  instance
     def test_instance(self):
         self.assertTrue(isinstance(self.project_new,Project))
+
+# Testing Save Method
+    def test_save_project(self):
+        self.project_new.project_save()
+        projects = Project.objects.all()
+        self.assertTrue(len(projects)>0)  
+
+
+    
 
    
 
